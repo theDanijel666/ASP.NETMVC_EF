@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MVC_Spajanje_DB/MVC_Spajanje_DB.csproj" />
+  <Project Path="MVC_spajanje_repo/MVC_spajanje_repo.csproj" />
+</Solution>
