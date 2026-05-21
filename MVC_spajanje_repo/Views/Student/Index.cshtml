@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MVC_spajanje_repo.Models.Student>
+@{
+}
+
+<h1> Popis svih Studenata</h1>
+
+<p>
+    <a asp-action="Create">Dodaj novoga</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model=>model.Mbr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mjesto_Rodjenja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mjesto_Stanovanja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datum_rodjenja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JMBG)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.Mbr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prezime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mjesto_Rodjenja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mjesto_Stanovanja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datum_rodjenja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JMBG)
+                </td>
+                <td>
+                    @Html.ActionLink("Uredi","Edit",new {id=item.Mbr}) |
+                    @Html.ActionLink("Detalji","Details",new {id=item.Mbr}) |
+                    @Html.ActionLink("Obriši","Delete",new {id=item.Mbr})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

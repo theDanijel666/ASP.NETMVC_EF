@@ -15,14 +15,16 @@ namespace MVC_spajanje_repo.Controllers
 
         // GET: StudentController
         public ActionResult Index()
-        { 
-            return View(_repo.GetAllStudents());
+        {
+            var studenti = _repo.GetAllStudents();
+            return View(studenti);
         }
 
         // GET: StudentController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var student=_repo.GetStudentById(id);
+            return View(student);
         }
 
         // GET: StudentController/Create
@@ -70,7 +72,8 @@ namespace MVC_spajanje_repo.Controllers
         // GET: StudentController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var student= _repo.GetStudentById(id);
+            return View(student);
         }
 
         // POST: StudentController/Delete/5
@@ -80,11 +83,14 @@ namespace MVC_spajanje_repo.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if(_repo.DeleteStudent(id)) return RedirectToAction(nameof(Index));
+                throw new Exception("Neuspješno brisanje studenta!");
             }
-            catch
+            catch (Exception ex) {
             {
-                return View();
+                ViewBag.Message = ex.Message;
+                var student = _repo.GetStudentById(id);
+                return View(student);
             }
         }
     }
