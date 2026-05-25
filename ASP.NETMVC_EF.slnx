@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="MVC_EF_CF/MVC_EF_CF.csproj" Id="e918ddf0-c4a8-4625-9c7c-f8121c06ce39" />
   <Project Path="MVC_Spajanje_DB/MVC_Spajanje_DB.csproj" />
   <Project Path="MVC_spajanje_repo/MVC_spajanje_repo.csproj" />
 </Solution>

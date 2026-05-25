@@ -83,14 +83,16 @@ namespace MVC_spajanje_repo.Controllers
         {
             try
             {
-                if(_repo.DeleteStudent(id)) return RedirectToAction(nameof(Index));
+                if (_repo.DeleteStudent(id)) return RedirectToAction(nameof(Index));
                 throw new Exception("Neuspješno brisanje studenta!");
             }
-            catch (Exception ex) {
+            catch (Exception ex)
             {
-                ViewBag.Message = ex.Message;
-                var student = _repo.GetStudentById(id);
-                return View(student);
+                {
+                    ViewBag.Message = ex.Message;
+                    var student = _repo.GetStudentById(id);
+                    return View(student);
+                }
             }
         }
     }
